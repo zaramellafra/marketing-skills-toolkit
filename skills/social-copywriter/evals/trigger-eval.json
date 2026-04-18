@@ -1,0 +1,101 @@
+{
+  "description": "Trigger evaluation for skill-social-copywriter. Tests whether the skill activates on relevant prompts and stays silent on unrelated ones.",
+  "skill": "skill-social-copywriter",
+  "version": "1.0",
+
+  "should_trigger": [
+    {
+      "id": "t01",
+      "prompt": "Scrivi un thread su Threads sulla mia app",
+      "reason": "Explicit request to write a thread on Threads"
+    },
+    {
+      "id": "t02",
+      "prompt": "Aiutami a scrivere un post per Threads",
+      "reason": "Explicit post creation request for Threads"
+    },
+    {
+      "id": "t03",
+      "prompt": "Crea un thread che racconta come ho iniziato a sviluppare la mia app",
+      "reason": "Storytelling thread creation request"
+    },
+    {
+      "id": "t04",
+      "prompt": "Ho bisogno di contenuti per i social sulla mia app",
+      "reason": "General social content request — should trigger copywriter"
+    },
+    {
+      "id": "t05",
+      "prompt": "Scrivi un carosello per Instagram sul lancio della mia app",
+      "reason": "Carousel format request for social"
+    },
+    {
+      "id": "t06",
+      "prompt": "Dammi 3 idee di thread da pubblicare questa settimana",
+      "reason": "Content ideation for thread format"
+    },
+    {
+      "id": "t07",
+      "prompt": "Come scrivo un buon hook per un thread?",
+      "reason": "Question about writing technique for threads — skill has relevant knowledge"
+    },
+    {
+      "id": "t08",
+      "prompt": "Riscrivi questo thread per renderlo più coinvolgente",
+      "reason": "Copy editing and improvement request for thread"
+    },
+    {
+      "id": "t09",
+      "prompt": "Scrivi una caption per il mio Reel sulla app",
+      "reason": "Video caption request — covered format"
+    },
+    {
+      "id": "t10",
+      "prompt": "Draft a thread about the behind the scenes of building my app",
+      "reason": "English language request — skill works in any language the user writes in"
+    }
+  ],
+
+  "should_not_trigger": [
+    {
+      "id": "n01",
+      "prompt": "Qual è il meteo a Milano oggi?",
+      "reason": "Completely unrelated — weather query"
+    },
+    {
+      "id": "n02",
+      "prompt": "Aiutami a debuggare questo codice Python",
+      "reason": "Coding task — not social content"
+    },
+    {
+      "id": "n03",
+      "prompt": "Fai un'analisi della mia strategia social",
+      "reason": "Strategy analysis — not copywriting (would trigger skill-social-media-strategy)"
+    },
+    {
+      "id": "n04",
+      "prompt": "Crea un piano editoriale per il mese prossimo",
+      "reason": "Editorial planning — not copywriting execution"
+    },
+    {
+      "id": "n05",
+      "prompt": "Dimmi quali sono i migliori orari per postare su Threads",
+      "reason": "Platform knowledge question — not copy creation"
+    },
+    {
+      "id": "n06",
+      "prompt": "Scrivi una email di benvenuto per i nuovi utenti della mia app",
+      "reason": "Email copy — not social content (would trigger skill-email-copywriter)"
+    },
+    {
+      "id": "n07",
+      "prompt": "Crea un logo per la mia app",
+      "reason": "Visual design request — not text content"
+    },
+    {
+      "id": "n08",
+      "prompt": "Riassumi questo articolo sul marketing",
+      "reason": "Summarization task — not content creation"
+    }
+  ]
+}
