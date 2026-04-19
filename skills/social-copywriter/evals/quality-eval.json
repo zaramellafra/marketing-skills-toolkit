@@ -1,0 +1,268 @@
+{
+  "description": "Quality evaluation for skill-social-copywriter. Tests output quality on real use cases based on the user's actual context. Brand context is loaded from skill-context. Platform rules are loaded from skill-platform-knowledge.",
+  "skill": "skill-social-copywriter",
+  "requires": ["skill-context", "skill-platform-knowledge"],
+  "version": "1.0",
+  "primary_use_case": "Threads (Meta) — storytelling thread about app development — engagement and community objective",
+
+  "test_cases": [
+    {
+      "id": "q01",
+      "name": "Core use case — storytelling thread from scratch",
+      "description": "The most common task: write a storytelling thread about the app from a topic given by the user.",
+      "input": {
+        "prompt": "Scrivi un thread su Threads che racconta perché ho deciso di iniziare a sviluppare la mia app. Voglio che sia personale e che faccia venire voglia di seguire il progetto.",
+        "platform": "Threads",
+        "format": "thread",
+        "objective": "engagement and community",
+        "narrative": "personal storytelling",
+        "variants": 1
+      },
+      "context": {
+        "brand": "load from skill-context",
+        "platform_rules": "load Threads section from skill-platform-knowledge"
+      },
+      "assertions": [
+        {
+          "id": "q01-a1",
+          "criterion": "Hook quality",
+          "check": "The first post stops the scroll — it is specific, personal, and creates curiosity. It does not start with 'Oggi vi racconto' or generic openers.",
+          "weight": "high"
+        },
+        {
+          "id": "q01-a2",
+          "criterion": "Thread structure",
+          "check": "Thread has between 5 and 10 posts. Each post contains one idea only. Last post has a CTA.",
+          "weight": "high"
+        },
+        {
+          "id": "q01-a3",
+          "criterion": "Threads format compliance",
+          "check": "Each post is within 500 characters. No external links inside the thread body. Hashtags only in last post (1-3 max).",
+          "weight": "high"
+        },
+        {
+          "id": "q01-a4",
+          "criterion": "Tone of voice",
+          "check": "Copy matches the TOV defined in skill-context. Does not sound corporate or generic. Feels personal and authentic.",
+          "weight": "high"
+        },
+        {
+          "id": "q01-a5",
+          "criterion": "Storytelling arc",
+          "check": "Thread has a clear narrative arc: situation → tension/challenge → resolution or ongoing journey. Reader is carried forward.",
+          "weight": "medium"
+        },
+        {
+          "id": "q01-a6",
+          "criterion": "Engagement objective",
+          "check": "Thread ends with a question or CTA that invites replies and discussion. Does not end abruptly.",
+          "weight": "medium"
+        },
+        {
+          "id": "q01-a7",
+          "criterion": "Output format",
+          "check": "Each post is clearly labeled (Post 1, Post 2, etc.). Technical notes are provided (character count, hashtags).",
+          "weight": "low"
+        }
+      ]
+    },
+
+    {
+      "id": "q02",
+      "name": "Behind the scenes thread — development process",
+      "description": "Thread showing what happens behind the scenes while building the app. Common format for community building.",
+      "input": {
+        "prompt": "Crea un thread behind the scenes su una feature che sto costruendo in questo momento. Non posso dire di che feature si tratta, ma voglio mostrare il processo di sviluppo.",
+        "platform": "Threads",
+        "format": "thread",
+        "objective": "engagement and community",
+        "narrative": "behind the scenes",
+        "variants": 1
+      },
+      "context": {
+        "brand": "load from skill-context",
+        "platform_rules": "load Threads section from skill-platform-knowledge"
+      },
+      "assertions": [
+        {
+          "id": "q02-a1",
+          "criterion": "Handles ambiguity well",
+          "check": "The skill works with the constraint (no feature name revealed) and builds intrigue around the mystery rather than asking to reveal it.",
+          "weight": "high"
+        },
+        {
+          "id": "q02-a2",
+          "criterion": "Authenticity",
+          "check": "Copy feels like a real founder/developer talking, not a marketing team. Includes specific details, doubts, or micro-moments that make it believable.",
+          "weight": "high"
+        },
+        {
+          "id": "q02-a3",
+          "criterion": "Threads format compliance",
+          "check": "Each post within 500 characters. Structure follows thread best practices from skill-platform-knowledge.",
+          "weight": "high"
+        },
+        {
+          "id": "q02-a4",
+          "criterion": "Community building",
+          "check": "Thread invites the audience into the process — asks for opinions, feedback, or reactions. Not a one-way broadcast.",
+          "weight": "medium"
+        },
+        {
+          "id": "q02-a5",
+          "criterion": "Cliffhangers",
+          "check": "At least 1-2 posts end with a micro-cliffhanger or teaser that pulls the reader to the next post.",
+          "weight": "medium"
+        }
+      ]
+    },
+
+    {
+      "id": "q03",
+      "name": "Milestone announcement thread",
+      "description": "Sharing a meaningful milestone in the app development journey. Tests ability to balance celebration with community engagement.",
+      "input": {
+        "prompt": "Ho appena raggiunto il primo milestone importante nello sviluppo della mia app. Voglio condividerlo su Threads in modo che la community si senta parte del percorso.",
+        "platform": "Threads",
+        "format": "thread",
+        "objective": "engagement and community",
+        "narrative": "personal storytelling",
+        "variants": 2
+      },
+      "context": {
+        "brand": "load from skill-context",
+        "platform_rules": "load Threads section from skill-platform-knowledge"
+      },
+      "assertions": [
+        {
+          "id": "q03-a1",
+          "criterion": "Two distinct variants",
+          "check": "The two variants use genuinely different narrative approaches — not just rephrased versions of the same idea.",
+          "weight": "high"
+        },
+        {
+          "id": "q03-a2",
+          "criterion": "Community inclusion",
+          "check": "Both variants make the audience feel part of the achievement — uses 'noi', 'insieme', 'grazie a chi segue', or equivalent. Not just self-congratulatory.",
+          "weight": "high"
+        },
+        {
+          "id": "q03-a3",
+          "criterion": "Threads format compliance",
+          "check": "Both variants comply with 500 char limit per post and thread structure best practices.",
+          "weight": "high"
+        },
+        {
+          "id": "q03-a4",
+          "criterion": "Emotional resonance",
+          "check": "At least one variant uses vulnerability or honest reflection (what was hard, what was unexpected) rather than just celebrating the win.",
+          "weight": "medium"
+        },
+        {
+          "id": "q03-a5",
+          "criterion": "Variants are labeled and explained",
+          "check": "Each variant is clearly labeled with its approach (e.g. 'Variant 1 — Storytelling / Variant 2 — Contrarian'). Brief explanation of creative choice is provided.",
+          "weight": "low"
+        }
+      ]
+    },
+
+    {
+      "id": "q04",
+      "name": "Lesson learned thread — mistake or pivot",
+      "description": "Tests ability to write honest, vulnerable content about a mistake or change of direction. High-engagement format for builders.",
+      "input": {
+        "prompt": "Ho cambiato direzione su una decisione importante per la mia app. Voglio scrivere un thread onesto su cosa non ha funzionato e cosa ho imparato.",
+        "platform": "Threads",
+        "format": "thread",
+        "objective": "engagement and community",
+        "narrative": "personal storytelling",
+        "variants": 1
+      },
+      "context": {
+        "brand": "load from skill-context",
+        "platform_rules": "load Threads section from skill-platform-knowledge"
+      },
+      "assertions": [
+        {
+          "id": "q04-a1",
+          "criterion": "Vulnerability without victimhood",
+          "check": "Copy is honest and specific about what went wrong, but frames it as a learning — not a complaint or an excuse.",
+          "weight": "high"
+        },
+        {
+          "id": "q04-a2",
+          "criterion": "Specificity",
+          "check": "Thread includes at least one concrete detail (a decision, a moment, a realization) rather than staying vague and generic.",
+          "weight": "high"
+        },
+        {
+          "id": "q04-a3",
+          "criterion": "Threads format compliance",
+          "check": "500 char limit per post respected. Thread structure follows best practices.",
+          "weight": "high"
+        },
+        {
+          "id": "q04-a4",
+          "criterion": "Actionable takeaway",
+          "check": "Thread ends with a clear lesson or insight the audience can apply or reflect on — not just 'keep going'.",
+          "weight": "medium"
+        },
+        {
+          "id": "q04-a5",
+          "criterion": "Engagement hook in closing",
+          "check": "Last post asks the audience a question related to the lesson — invites them to share their own experience.",
+          "weight": "medium"
+        }
+      ]
+    },
+
+    {
+      "id": "q05",
+      "name": "Missing mother skill — fallback behavior",
+      "description": "Tests that the skill correctly stops and alerts the user when skill-context or skill-platform-knowledge is not active.",
+      "input": {
+        "prompt": "Scrivi un thread sulla mia app",
+        "simulate_missing_skills": ["skill-context"]
+      },
+      "context": {
+        "brand": "skill-context NOT available",
+        "platform_rules": "load Threads section from skill-platform-knowledge"
+      },
+      "assertions": [
+        {
+          "id": "q05-a1",
+          "criterion": "Stops before writing",
+          "check": "Claude does NOT produce any copy. It stops at Step 0.",
+          "weight": "critical"
+        },
+        {
+          "id": "q05-a2",
+          "criterion": "Clear error message",
+          "check": "Claude tells the user exactly which skill is missing (skill-context) and where to activate it.",
+          "weight": "critical"
+        },
+        {
+          "id": "q05-a3",
+          "criterion": "Offers fallback option",
+          "check": "Claude offers the user option (b): provide brand context inline for this session only.",
+          "weight": "high"
+        }
+      ]
+    }
+  ],
+
+  "grading_scale": {
+    "critical": "Must pass. Failure here means the skill is broken.",
+    "high": "Should pass. Failure here means the skill needs improvement before use.",
+    "medium": "Nice to have. Failure here is a refinement opportunity.",
+    "low": "Polish. Does not affect core functionality."
+  },
+
+  "pass_threshold": {
+    "critical": "100% — all critical assertions must pass",
+    "high": "80% — at least 4 out of 5 high-weight assertions must pass per test case",
+    "overall": "If any critical assertion fails, the test case fails regardless of other scores"
+  }
+}
