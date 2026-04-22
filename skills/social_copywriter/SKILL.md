@@ -1,14 +1,16 @@
 ---
 name: skill-social-copywriter
 description: >
-  Professional social media copywriter skill. Use this skill whenever the user wants 
-  to write, create, or generate any social media text content from scratch: single posts, 
-  threads, carousels (slide-by-slide scripts), captions for Reels/TikTok/video, or 
-  Stories copy. Covers all major platforms: X/Twitter, Threads, Instagram, LinkedIn, 
-  Facebook, TikTok, YouTube, Reddit. Always loads skill-context (brand identity, TOV) 
-  and skill-platform-knowledge (platform rules and limits) before writing. Trigger this 
-  skill whenever the user mentions writing, drafting, creating, or generating any social 
-  post, thread, caption, carousel, or copy for any social platform.
+  Professional social media copywriter skill. Use this skill whenever the user wants
+  to write, create, draft, or generate any social media text content from scratch:
+  single posts, threads, carousels (slide-by-slide scripts), captions for
+  Reels/TikTok/video, or Stories copy. Covers all major platforms: X/Twitter, Threads,
+  Instagram, LinkedIn, Facebook, TikTok, YouTube, Reddit. Trigger on intents like:
+  "write a post", "write a thread", "create a carousel", "social content", "post for",
+  "thread about", "caption for", "social copy", "content ideas for social". Do not wait
+  for the user to ask explicitly — if the intent is to produce social media text, load
+  this skill immediately. Always reads skill-context and skill-platform-knowledge
+  before writing.
 ---
 
 # Skill — Social Copywriter
@@ -32,10 +34,15 @@ in the active skill list.
 
 Read them now before proceeding to Step 1.
 
-- From `skill-context`: load brand identity, TOV, audience, content pillars,
-  active campaign context, and existing copy samples. If key fields are empty,
-  note what is missing and ask the user before writing.
-- From `skill-platform-knowledge`: load the relevant platform section(s) for the task.
+To find `skill-context`: look in the available skills list for a skill named
+exactly `skill-context`. Its SKILL.md contains brand identity, TOV, audience,
+content pillars, active campaign context, and existing copy samples.
+Open and read its full SKILL.md content now. If key fields are still empty
+(showing placeholder text), note what is missing and ask the user before writing.
+
+To find `skill-platform-knowledge`: look in the available skills list for a skill
+named exactly `skill-platform-knowledge`. Open its SKILL.md and read only the
+section(s) relevant to the platform(s) needed for this task.
 
 ### If one or both skills are missing
 
@@ -73,16 +80,16 @@ Keep it conversational — don't make it feel like a form.
 
 **Ask:**
 
-1. **Piattaforma** — Dove viene pubblicato? (X, LinkedIn, Instagram, Threads,
+1. **Platform** — Where will this be published? (X, LinkedIn, Instagram, Threads,
    Facebook, TikTok, YouTube, Reddit)
-2. **Formato** — Che tipo di contenuto?
-   (post singolo / thread / carosello / caption video / Stories copy)
-3. **Obiettivo** — Cosa deve fare questo contenuto?
-   (awareness / engagement / traffico / lead / conversione / community)
-4. **Approccio narrativo** — Come vuoi raccontarlo?
-   (storytelling / listicle / contrarian / how-to / dati e insight / domanda /
-   behind the scenes / altro — o lascia decidere a Claude)
-5. **Numero di varianti** — Quante versioni vuoi? (default: 1 se non specificato)
+2. **Format** — What type of content?
+   (single post / thread / carousel / video caption / Stories copy)
+3. **Objective** — What should this content achieve?
+   (awareness / engagement / traffic / lead generation / conversion / community)
+4. **Narrative approach** — How do you want to frame it?
+   (storytelling / listicle / contrarian / how-to / data+insight / question /
+   behind the scenes / other — or let Claude decide)
+5. **Number of variants** — How many versions do you want? (default: 1 if not specified)
 
 If the user has already provided some of this information in their message,
 don't ask again — extract it and only ask what's missing.
@@ -131,14 +138,14 @@ Present each variant clearly labeled:
 
 ```
 ---
-**Variante 1 — [Approccio: es. Storytelling]**
+**Variant 1 — [Approach: e.g. Storytelling]**
 
-[Copy completo, pronto da pubblicare]
+[Full copy, ready to publish]
 
-📊 Note tecniche:
-- Caratteri: [X / limite piattaforma]
-- Hashtag: [lista]
-- Link: [posizione consigliata se presente]
+📊 Technical notes:
+- Characters: [X / platform limit]
+- Hashtags: [list]
+- Link: [recommended placement if present]
 ---
 ```
 
@@ -146,23 +153,23 @@ For carousels, structure each slide:
 
 ```
 ---
-**Carosello — [Titolo del carosello]**
+**Carousel — [Carousel title]**
 
 **Cover (Slide 1):**
-Headline: [testo]
-Sottotitolo: [testo opzionale]
+Headline: [text]
+Subtitle: [optional text]
 
 **Slide 2:**
-Headline: [testo]
-Body: [testo]
+Headline: [text]
+Body: [text]
 
 [...continua per ogni slide...]
 
-**Slide finale (CTA):**
-Headline: [testo]
-CTA: [azione chiara]
+**Last slide (CTA):**
+Headline: [text]
+CTA: [clear action]
 
-📊 Note: [numero slide / piattaforma / formato]
+📊 Notes: [slide count / platform / format]
 ---
 ```
 
@@ -176,7 +183,7 @@ Always close with:
    (hook type, narrative approach, format decisions) — max 3 bullet points
 2. One concrete suggestion for how to **test or improve** the copy
    (e.g. A/B test the hook, try a different CTA, add a data point)
-3. Ask: _"Vuoi modifiche, una variante diversa, o adattarlo per un'altra piattaforma?"_
+3. Ask: _"Would you like changes, a different variant, or to adapt this for another platform?"_
 
 ---
 
